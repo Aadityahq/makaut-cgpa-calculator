@@ -28,8 +28,8 @@ const HowCGPAWorks = () => {
                 Letter Grade to Grade Point Conversion
               </CardTitle>
             </CardHeader>
-            <CardContent className="p-6">
-              <div className="grid grid-cols-4 sm:grid-cols-8 gap-3">
+            <CardContent className="p-6 overflow-x-auto">
+              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 min-w-fit sm:min-w-full">
                 {[
                   { grade: "O", point: 10, label: "Outstanding" },
                   { grade: "E", point: 9, label: "Excellent" },
@@ -42,13 +42,13 @@ const HowCGPAWorks = () => {
                 ].map(({ grade, point, label }) => (
                   <div
                     key={grade}
-                    className="text-center p-3 rounded-xl bg-secondary hover:bg-primary/10 transition-colors group"
+                    className="text-center p-2 sm:p-3 rounded-xl bg-secondary hover:bg-primary/10 transition-colors group flex flex-col items-center justify-center min-w-0"
                   >
-                    <div className="text-2xl font-display font-bold text-primary group-hover:scale-110 transition-transform">
+                    <div className="text-xl sm:text-2xl font-display font-bold text-primary group-hover:scale-110 transition-transform">
                       {grade}
                     </div>
-                    <div className="text-lg font-semibold text-foreground">{point}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{label}</div>
+                    <div className="text-base sm:text-lg font-semibold text-foreground">{point}</div>
+                    <div className="text-xs text-muted-foreground mt-1 line-clamp-2">{label}</div>
                   </div>
                 ))}
               </div>
@@ -64,15 +64,15 @@ const HowCGPAWorks = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="p-4 rounded-xl bg-secondary">
+              <div className="p-4 rounded-xl bg-secondary overflow-x-auto">
                 <p className="text-sm text-muted-foreground mb-2">Formula:</p>
-                <p className="text-lg font-mono font-semibold text-foreground">
+                <p className="text-xs sm:text-sm lg:text-lg font-mono font-semibold text-foreground break-words whitespace-normal">
                   SGPA = Σ(Credit Points × Grade Points) / Σ(Credit Points)
                 </p>
               </div>
               <div className="flex items-start gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20">
                 <Info className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   <strong className="text-foreground">Credit Points</strong> are assigned to each subject based on its weightage. The SGPA is calculated at the end of each semester.
                 </p>
               </div>
@@ -88,15 +88,15 @@ const HowCGPAWorks = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="p-4 rounded-xl bg-secondary">
+              <div className="p-4 rounded-xl bg-secondary overflow-x-auto">
                 <p className="text-sm text-muted-foreground mb-2">Formula:</p>
-                <p className="text-lg font-mono font-semibold text-foreground">
+                <p className="text-xs sm:text-sm lg:text-lg font-mono font-semibold text-foreground break-words whitespace-normal">
                   YGPA = (Credit Index of Odd Sem + Credit Index of Even Sem) / Total Credits
                 </p>
               </div>
-              <div className="p-4 rounded-xl bg-muted">
+              <div className="p-4 rounded-xl bg-muted overflow-x-auto">
                 <p className="text-sm text-muted-foreground mb-2">Simplified:</p>
-                <p className="text-lg font-mono font-semibold text-foreground">
+                <p className="text-xs sm:text-sm lg:text-lg font-mono font-semibold text-foreground break-words whitespace-normal">
                   YGPA ≈ (SGPA_Odd + SGPA_Even) / 2
                 </p>
               </div>
@@ -114,10 +114,10 @@ const HowCGPAWorks = () => {
             <CardContent className="p-6 space-y-6">
               {/* 4 Year Degree */}
               <div className="p-4 rounded-xl border-2 border-border hover:border-primary/30 transition-colors">
-                <h3 className="font-display font-semibold text-lg text-foreground mb-2">
+                <h3 className="font-display font-semibold text-base sm:text-lg text-foreground mb-2">
                   4 Year Degree (B.Tech, B.Arch)
                 </h3>
-                <div className="p-3 rounded-lg bg-secondary font-mono text-sm sm:text-base">
+                <div className="p-3 rounded-lg bg-secondary font-mono text-xs sm:text-sm lg:text-base overflow-x-auto break-words whitespace-normal">
                   CGPA = (YGPA₁ + YGPA₂ + 1.5×YGPA₃ + 1.5×YGPA₄) / 5
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
@@ -127,10 +127,10 @@ const HowCGPAWorks = () => {
 
               {/* Lateral Entry */}
               <div className="p-4 rounded-xl border-2 border-border hover:border-primary/30 transition-colors">
-                <h3 className="font-display font-semibold text-lg text-foreground mb-2">
+                <h3 className="font-display font-semibold text-base sm:text-lg text-foreground mb-2">
                   Lateral Entry (4 Year)
                 </h3>
-                <div className="p-3 rounded-lg bg-secondary font-mono text-sm sm:text-base">
+                <div className="p-3 rounded-lg bg-secondary font-mono text-xs sm:text-sm lg:text-base overflow-x-auto break-words whitespace-normal">
                   CGPA = (YGPA₂ + 1.5×YGPA₃ + 1.5×YGPA₄) / 4
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
@@ -140,10 +140,10 @@ const HowCGPAWorks = () => {
 
               {/* 3 Year Degree */}
               <div className="p-4 rounded-xl border-2 border-border hover:border-primary/30 transition-colors">
-                <h3 className="font-display font-semibold text-lg text-foreground mb-2">
+                <h3 className="font-display font-semibold text-base sm:text-lg text-foreground mb-2">
                   3 Year Degree (BCA, B.Sc)
                 </h3>
-                <div className="p-3 rounded-lg bg-secondary font-mono text-sm sm:text-base">
+                <div className="p-3 rounded-lg bg-secondary font-mono text-xs sm:text-sm lg:text-base overflow-x-auto break-words whitespace-normal">
                   CGPA = (YGPA₁ + YGPA₂ + YGPA₃) / 3
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
@@ -153,10 +153,10 @@ const HowCGPAWorks = () => {
 
               {/* 2 Year Degree */}
               <div className="p-4 rounded-xl border-2 border-border hover:border-primary/30 transition-colors">
-                <h3 className="font-display font-semibold text-lg text-foreground mb-2">
+                <h3 className="font-display font-semibold text-base sm:text-lg text-foreground mb-2">
                   2 Year Degree (M.Tech, MCA)
                 </h3>
-                <div className="p-3 rounded-lg bg-secondary font-mono text-sm sm:text-base">
+                <div className="p-3 rounded-lg bg-secondary font-mono text-xs sm:text-sm lg:text-base overflow-x-auto break-words whitespace-normal">
                   CGPA = (YGPA₁ + YGPA₂) / 2
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
@@ -166,10 +166,10 @@ const HowCGPAWorks = () => {
 
               {/* 1 Year Degree */}
               <div className="p-4 rounded-xl border-2 border-border hover:border-primary/30 transition-colors">
-                <h3 className="font-display font-semibold text-lg text-foreground mb-2">
+                <h3 className="font-display font-semibold text-base sm:text-lg text-foreground mb-2">
                   1 Year Degree (MBA, M.Sc)
                 </h3>
-                <div className="p-3 rounded-lg bg-secondary font-mono text-sm sm:text-base">
+                <div className="p-3 rounded-lg bg-secondary font-mono text-xs sm:text-sm lg:text-base overflow-x-auto break-words whitespace-normal">
                   CGPA = YGPA₁
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">

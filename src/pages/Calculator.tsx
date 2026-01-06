@@ -98,36 +98,36 @@ const Calculator = () => {
     <div className="min-h-[calc(100vh-4rem)] py-8 px-4">
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-8 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            <Sparkles className="h-4 w-4" />
+        <div className="text-center mb-8 animate-fade-in px-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+            <Sparkles className="h-3 w-3 sm:h-4 sm:w-4" />
             <span>MAKAUT University</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-2 sm:mb-3">
             CGPA Calculator
           </h1>
-          <p className="text-muted-foreground text-lg max-w-md mx-auto">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-md mx-auto">
             Calculate your cumulative grade point average based on your semester results
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6">
           {/* Input Card */}
           <Card className="lg:col-span-3 shadow-card border-0 animate-fade-in">
-            <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2 text-xl">
-                <CalculatorIcon className="h-5 w-5 text-primary" />
+            <CardHeader className="pb-3 sm:pb-4">
+              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+                <CalculatorIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                 Enter Your Details
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-4 sm:space-y-6">
               {/* Degree Type Selector */}
               <div>
-                <Label className="text-sm font-medium text-muted-foreground">
+                <Label className="text-xs sm:text-sm font-medium text-muted-foreground">
                   Degree Type
                 </Label>
                 <Select value={degreeType} onValueChange={handleDegreeChange}>
-                  <SelectTrigger className="mt-1.5 h-12 border-2 hover:border-primary/50 focus:border-primary transition-colors">
+                  <SelectTrigger className="mt-1.5 h-10 sm:h-12 border-2 hover:border-primary/50 focus:border-primary transition-colors text-sm">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-card border shadow-lg">
@@ -138,18 +138,18 @@ const Calculator = () => {
                     ))}
                   </SelectContent>
                 </Select>
-                <p className="mt-1.5 text-xs text-muted-foreground">
+                <p className="mt-1 sm:mt-1.5 text-xs text-muted-foreground">
                   {config.description}
                 </p>
               </div>
 
               {/* Semester Inputs Grid */}
               <div>
-                <Label className="text-sm font-medium text-muted-foreground mb-3 block">
+                <Label className="text-xs sm:text-sm font-medium text-muted-foreground mb-2 sm:mb-3 block">
                   Semester SGPAs{" "}
                   <span className="text-xs font-normal">(Leave empty if not available)</span>
                 </Label>
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {Array.from({ length: config.semesters }).map((_, idx) => (
                     <SemesterInput
                       key={idx}
@@ -163,20 +163,21 @@ const Calculator = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2 sm:pt-4">
                 <Button
                   onClick={handleCalculate}
-                  className="flex-1"
-                  size="lg"
+                  className="flex-1 h-10 sm:h-11 text-sm sm:text-base"
+                  size="default"
                 >
                   <CalculatorIcon className="h-4 w-4" />
-                  Calculate CGPA
+                  <span className="hidden sm:inline">Calculate CGPA</span>
+                  <span className="sm:hidden">Calculate</span>
                 </Button>
                 <Button
                   onClick={handleReset}
                   variant="outline"
-                  size="lg"
-                  className="sm:w-auto"
+                  size="default"
+                  className="sm:w-auto h-10 sm:h-11 text-sm sm:text-base"
                 >
                   <RotateCcw className="h-4 w-4" />
                   Reset
@@ -194,12 +195,12 @@ const Calculator = () => {
                 totalSemesters={result.totalSemesters}
               />
             ) : (
-              <Card className="shadow-card border-0 h-full min-h-[280px] flex items-center justify-center animate-fade-in">
-                <CardContent className="text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-secondary mx-auto mb-4 flex items-center justify-center">
-                    <CalculatorIcon className="h-8 w-8 text-muted-foreground" />
+              <Card className="shadow-card border-0 h-full min-h-[250px] sm:min-h-[280px] flex items-center justify-center animate-fade-in">
+                <CardContent className="text-center py-8 sm:py-12 px-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-secondary mx-auto mb-3 sm:mb-4 flex items-center justify-center">
+                    <CalculatorIcon className="h-6 w-6 sm:h-8 sm:w-8 text-muted-foreground" />
                   </div>
-                  <p className="text-muted-foreground">
+                  <p className="text-xs sm:text-sm text-muted-foreground">
                     Enter your semester SGPAs and click{" "}
                     <span className="font-semibold text-foreground">Calculate</span> to see your CGPA
                   </p>

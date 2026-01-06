@@ -27,14 +27,14 @@ const ResultCard = ({ cgpa, semestersFilled, totalSemesters }: ResultCardProps) 
 
   return (
     <Card className="overflow-hidden border-0 shadow-card animate-fade-in">
-      <div className="gradient-hero p-6 text-primary-foreground">
+      <div className="gradient-hero p-4 sm:p-6 text-primary-foreground">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium opacity-90">Your CGPA</p>
-            <p className="text-5xl font-display font-bold mt-1">{cgpa.toFixed(2)}</p>
+            <p className="text-xs sm:text-sm font-medium opacity-90">Your CGPA</p>
+            <p className="text-4xl sm:text-5xl font-display font-bold mt-1">{cgpa.toFixed(2)}</p>
           </div>
-          <div className="h-20 w-20 rounded-full bg-primary-foreground/20 flex items-center justify-center">
-            <TrendingUp className="h-10 w-10" />
+          <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-primary-foreground/20 flex items-center justify-center flex-shrink-0">
+            <TrendingUp className="h-8 w-8 sm:h-10 sm:w-10" />
           </div>
         </div>
         
@@ -53,29 +53,29 @@ const ResultCard = ({ cgpa, semestersFilled, totalSemesters }: ResultCardProps) 
         </div>
       </div>
       
-      <CardContent className="p-6 space-y-4">
+      <CardContent className="p-4 sm:p-6 space-y-3 sm:space-y-4">
         <div className="flex items-center justify-between">
-          <span className="text-sm text-muted-foreground">Performance</span>
-          <span className={`font-semibold ${grade.color}`}>{grade.label}</span>
+          <span className="text-xs sm:text-sm text-muted-foreground">Performance</span>
+          <span className={`font-semibold text-sm sm:text-base ${grade.color}`}>{grade.label}</span>
         </div>
         
         <div className="flex items-center justify-between">
-          <span className="text-sm text-muted-foreground">Semesters Used</span>
-          <span className="font-medium text-foreground">
+          <span className="text-xs sm:text-sm text-muted-foreground">Semesters Used</span>
+          <span className="font-medium text-foreground text-sm sm:text-base">
             {semestersFilled} of {totalSemesters}
           </span>
         </div>
 
         {/* Status message */}
-        <div className={`flex items-start gap-3 p-3 rounded-lg ${
+        <div className={`flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg text-xs sm:text-sm ${
           isComplete ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"
         }`}>
           {isComplete ? (
-            <CheckCircle2 className="h-5 w-5 shrink-0 mt-0.5" />
+            <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 shrink-0 mt-0.5" />
           ) : (
-            <AlertCircle className="h-5 w-5 shrink-0 mt-0.5" />
+            <AlertCircle className="h-4 w-4 sm:h-5 sm:w-5 shrink-0 mt-0.5" />
           )}
-          <p className="text-sm">
+          <p>
             {isComplete
               ? "CGPA calculated using all semester results."
               : "Final CGPA may change after remaining semesters are added."}

@@ -27,14 +27,14 @@ const SemesterInput = ({ semester, value, onChange, error }: SemesterInputProps)
     <div className="group animate-fade-in" style={{ animationDelay: `${semester * 50}ms` }}>
       <Label
         htmlFor={`semester-${semester}`}
-        className="text-sm font-medium text-muted-foreground group-focus-within:text-primary transition-colors flex items-center justify-between"
+        className="text-xs sm:text-sm font-medium text-muted-foreground group-focus-within:text-primary transition-colors flex items-center justify-between"
       >
         <span>Semester {semester}</span>
         {value && !error && (
           <span className="text-xs text-primary font-normal">SGPA</span>
         )}
       </Label>
-      <div className="mt-1.5">
+      <div className="mt-1">
         <Input
           id={`semester-${semester}`}
           type="number"
@@ -44,7 +44,7 @@ const SemesterInput = ({ semester, value, onChange, error }: SemesterInputProps)
           placeholder="0.00 - 10.00"
           value={value}
           onChange={handleChange}
-          className={`h-11 bg-background border-2 transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 ${
+          className={`h-9 sm:h-10 bg-background border-2 transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm ${
             error ? "border-destructive" : "border-border hover:border-primary/50"
           }`}
         />
